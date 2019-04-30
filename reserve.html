@@ -16,22 +16,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <script src="assets/javascript.js"></script>
   </head>
   <body>
     <div class="container mb-5">
         <div class="jumbotron bg-light text-center text-dark">
-            <h1>Hot Restaurant</h1>
+            <h1 class="display-3"><ion-icon name="flame"></ion-icon>Hot Restaurant</h1>
             <hr>
-            <p>Make your reservation</p>
+            <h2>Make your reservation</h2>
+            <button type="submit" class="btn btn-primary btn-lg float-center mt-4" id="viewTable" ><ion-icon name="list-box"></ion-icon>View Tables</button><a href="homepage.html"> <button type="submit" class="btn btn-white border-dark btn-lg float-center mt-4 text-dark" id="homeBtn" ><ion-icon name="home"></ion-icon></button></a>
+
         </div>
 
-        <!-- Add Train -->
+        <!-- Table Reservation -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-light text-dark">
-                        <h3>Table Reservation</h3>
+                        <h4>Table Reservation</h4>
                     </div>
                     <div class="col py-3">
                     <form>
