@@ -16,7 +16,25 @@ app.get("/", function(req, res) {
     res.send("Hello!");
   });
 
+  app.post("/api/tables", function(req, res) {
+
+    var newReservation = req.body;
+
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+  
+    console.log(newReservation);
+  
+    tables.push(newReservation);
+  
+    res.json(newReservation);
+  });
+
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-   
+  
+  
+  //======= Variables ===============
+  var tables=[];
+  var waitingList = [];
+
