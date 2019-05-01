@@ -79,14 +79,9 @@
           email: $("#email-input").val().trim(),
           unique_id: $("#unique-input").val().trim()
         };
-<<<<<<< HEAD
-
-        $.post("/api/table", newCustomer)
-=======
   
         // Question: What does this code do??
         $.post("http://localhost:3400/api/tables", newCustomer)
->>>>>>> ea3167dc5ce1d7e36539fabb41ae3d537f8a204f
           .then(function(data) {
             console.log("add customer", data);
             alert("Adding customer...");
