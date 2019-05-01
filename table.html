@@ -12,7 +12,6 @@
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
@@ -37,7 +36,7 @@
                         <h4>Current Reservations</h4>
                     </div>
                     <div class="col py-3">
-                            <input type="text" class="form-control bg-light" id="table">
+                            <div id="table"> </div>
                     </div>
                 </div>
             </div>
@@ -51,7 +50,7 @@
                             <h4>Waiting List</h4>
                         </div>
                         <div class="col py-3">
-                            <input type="text" class="form-control bg-light" id="table">
+                            <div id="waitList">  </div>
                         </div>
                     </div>
                 </div>
@@ -71,23 +70,40 @@
             </p>
         </div>
     </footer>
+    <script>
+        var makeTable = [];
 
-    <script type="text/javascript">
-        $("#view-btn").on("click", function() {
-          var newCustomer = $("#search-btn").val().trim();
-    
-          newCustomer = newCustomer.replace(/\s+/g, "").toLowerCase();
-    
-          $.get("/api/reserve/" + newCustomer, function(data) {
-            console.log(data);
+        $.get("http://localhost:3400/api/tables", function(data){
             if (data) {
-              $("#name-input").text(data.name);
-              $("#phone-input").text(data.phone_number);
-              $("#email-input").text(data.email);
-              $("#unique-input").text(data.unique_id);
-            }
+                $("#table").append(data.name);
+
+
+                // $("#waitList").append(data.role);
+              
+    }
+
+
+        } )
+          .then(function(data) {
+            console.log("add customer", data.name);
+        
           });
-        });
-      </script>
+     
+    </script>
+
   </body>
 </html>
+
+<!-- $.get("/api/characters/" + searchedCharacter, function(data) {
+    console.log(data);
+    if (data) {
+      $("#stats").show();
+      $("#name").text(data.name);
+      $("#role").text(data.role);
+      $("#age").text(data.age);
+      $("#force-points").text(data.forcePoints);
+    }
+    else {
+      $("#name").text("The force is not strong with this one. Your character was not found.");
+      $("#stats").hide();
+    } -->
