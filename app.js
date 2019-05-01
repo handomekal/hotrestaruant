@@ -18,7 +18,7 @@ app.get("/", function(req, res) {
 
   app.post("/api/tables", function(req, res) {
 
-    var newReservation = req.body.form;
+    var newReservation = req.body;
 
     // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
   
