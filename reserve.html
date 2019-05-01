@@ -78,13 +78,14 @@
           phone_number: $("#phone-input").val().trim(),
           email: $("#email-input").val().trim(),
           unique_id: $("#unique-input").val().trim()
+          
         };
-  
-        // Question: What does this code do??
+         alert("Adding Reservation...");
+
         $.post("http://localhost:3400/api/tables", newCustomer)
           .then(function(data) {
             console.log("add customer", data);
-            alert("Adding customer...");
+        
           });
       });
     </script>
