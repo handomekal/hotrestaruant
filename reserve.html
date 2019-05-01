@@ -79,9 +79,8 @@
           email: $("#email-input").val().trim(),
           unique_id: $("#unique-input").val().trim()
         };
-  
-        // Question: What does this code do??
-        $.post("/api/homepage", newCustomer)
+
+        $.post("/api/table", newCustomer)
           .then(function(data) {
             console.log("add customer", data);
             alert("Adding customer...");
