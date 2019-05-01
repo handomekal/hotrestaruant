@@ -81,7 +81,6 @@
           $.get("/api/reserve/" + newCustomer, function(data) {
             console.log(data);
             if (data) {
-              $("#stats").show();
               $("#name-input").text(data.name);
               $("#phone-input").text(data.phone_number);
               $("#email-input").text(data.email);
