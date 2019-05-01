@@ -11,6 +11,11 @@ let PORT = process.env.PORT || 3400;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.get("/", function(req, res) {
     // res.sendFile(path.join(__dirname, "view.html"));
     res.send("Hello!");
@@ -22,12 +27,12 @@ app.get("/", function(req, res) {
 
     // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
   
-    console.log(newReservation);
+    // console.log(newReservation);
   
     tables.push(newReservation);
   
     res.json(newReservation);
-    console.log(tables);
+   // console.log(tables);
   });
 
   app.listen(PORT, function() {
